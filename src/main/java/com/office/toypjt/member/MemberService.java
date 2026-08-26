@@ -22,6 +22,8 @@ public class MemberService {
         
         int result = memberDao.insertNewMember(memberDto);
 
+        result = 0;
+        
         if (result > 0) {
             System.out.println(CLASS_NAME.concat("signUp() SUCCESS!!"));
         } else {
