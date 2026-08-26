@@ -1,4 +1,4 @@
-<%@page import="com.office.ex.MemberConfig"%>
+<%@page import="com.office.toypjt.member.MemberConfig"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 	<div>
 	
 		<form
-			action= "<%= request.getContextPath().concat(MemberConfig.MEMBER_SIGNUP_CONFIRM) %>"
+			action= "<%= request.getContextPath().concat(MemberConfig.MEMBER_SIGNUP_CONFRIM) %>"
 			name="member_signup_form"
 			method="post">
 			

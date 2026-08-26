@@ -15,12 +15,15 @@ public class MemoDao {
 		int result = -1;
 		
 		try {
-			Class.forName(DRIVER);
+			Class.forName("");
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
+		
+		return 0;
 		
 	}
 
