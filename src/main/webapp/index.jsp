@@ -9,6 +9,7 @@
 <body>
 
 	This page is HOME.
-
+	<jsp:include page="./views/include/nav.jsp" />
+	
 </body>
 </html>
