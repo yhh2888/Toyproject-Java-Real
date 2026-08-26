@@ -3,7 +3,9 @@ package com.office.toypjt.member;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class MemberService {
+import com.office.toypjt.IToyPjtConfig;
+
+public class MemberService implements IToyPjtConfig {
 
     private String CLASS_NAME = "[MemberService]";
     private MemberDao memberDao;
@@ -38,9 +40,12 @@ public class MemberService {
         MemberDto memberDto = new MemberDto();
         memberDto.setMbId(request.getParameter("id"));
         memberDto.setMbPw(request.getParameter("pw"));
-
-        MemberDto loginedMember = memberDao.selectMember(memberDto);
-
+        
+        MemberDto loginedMember = new MemberDto();
+        loginedMember.setMbId("someone");
+        
+//      MemberDto loginedMember = memberDao.selectMember(memberDto);
+        
         if (loginedMember != null) {
             System.out.println(CLASS_NAME.concat("signIn() SUCCESS!!"));
         } else {

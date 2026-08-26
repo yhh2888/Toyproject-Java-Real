@@ -7,11 +7,12 @@
 	&nbsp;&nbsp; | &nbsp;&nbsp;
 	
 	<%
-		String signinedMemId = null;
+		String <a href="<%=request.getContextPath().concat(MemberConfig.MEMBER_SIGNUP_FORM)signinedMemId = null;
 		if (session.getAttribute("signinedMemId") !=
 				null) {
 			signinedMemId = String.valueOf(session.getAttribute("signinedMemId"));
-	%>
+	%>		<a href="<%=request.getContextPath().concat(MemoConfig.MEMO_LIST) %>">MEMO</a>
+			&nbsp;&nbsp; | &nbsp;&nbsp;
 			<a href="<%=request.getContextPath().concat(MemberConfig.MEMBER_SIGNUP_FORM) %>">SIGN-OUT</a>
 			&nbsp;&nbsp; | &nbsp;&nbsp;
 			<a href="<%=request.getContextPath().concat(MemberConfig.MEMBER_MODIFY_FORM) %>">MODIFY</a>
