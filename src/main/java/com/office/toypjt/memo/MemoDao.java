@@ -64,7 +64,7 @@ public class MemoDao implements IToyPjtConfig{
 	}
 	
 	// 메모 조회(read)
-	public List<MemoDto> viewListMemo() {
+	public List<MemoDto> selectMemoList() {
 		System.out.println(CLASS_NAME.concat("selectedMemo()"));
 		
 		Connection conn = null;
@@ -97,9 +97,9 @@ public class MemoDao implements IToyPjtConfig{
 		
 		} finally {
 			try {
+				if(rs != null) rs.close();
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
-				if(rs != null) rs.close();
 				
 			} catch (Exception e2) {
 				e2.printStackTrace();
@@ -109,7 +109,7 @@ public class MemoDao implements IToyPjtConfig{
 	}
 	
 	// 메모 수정(update)
-	public int updateForMemo(MemoDto memoDto) {
+	public int updateMemo(MemoDto memoDto) {
 		System.out.println(CLASS_NAME.concat("updateForMemo()"));
 		
 		Connection conn = null;
@@ -119,12 +119,68 @@ public class MemoDao implements IToyPjtConfig{
 		try {
 			Class.forName(DRIVER);
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			String sql = "UPDATE tbl_memo(memo_content)";
+			String sql = "UPDATE tbl_memo "
+							+ "SET "
+								+ "memo_content = ? "
+							+ "WHERE "
+								+ "memo_no = ?";
 			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memoDto.getMemoContent());
+			pstmt.setInt(2, memoDto.getMemoNo());
+			
+			result = pstmt.executeUpdate();
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		
+		} finally {
+
+			try {
+				
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	// 삭제(delete)
+	public int deleteMemoByMemoNo(int memoNo) {
+		System.out.println(CLASS_NAME.concat("deleteForMemo()"));
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = -1;
+		
+		try {
+			Class.forName(DRIVER);
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "DELETE FROM tbl_memo "
+							+ "WHERE "
+								+ "memo_no = ?";
+				
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memoNo);
+			
+			result = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-		
+		return result;
 	}
 }
