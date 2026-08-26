@@ -33,7 +33,10 @@ CREATE TABLE tbl_memo(
    primary key(memo_no)
 );
 
-INSERT INTO tbl_memo(memo_no, memo_name, memo_content, memo_writer_id, memo_write_date, memo_last_modify)
-VALUES(1, '오늘날씨맑음', '오늘 놀이동산에 갔다 재밌었다', 'user001', '2020-01-01', '2020-01-01');
+ALTER TABLE tbl_memo MODIFY COLUMN memo_write_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '메모 작성날짜';
+ALTER TABLE tbl_memo MODIFY COLUMN memo_last_modify TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '메모 마지막 수정날짜';
+
+INSERT INTO tbl_memo(memo_no, memo_name, memo_content, memo_writer_id)
+VALUES(2, '오늘날씨맑음', '오늘 놀이동산에 갔다 재밌었다', 'user0012');
 
 DESC tbl_memo;

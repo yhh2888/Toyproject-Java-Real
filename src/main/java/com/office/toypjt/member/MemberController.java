@@ -91,14 +91,14 @@ public class MemberController extends HttpServlet implements IToyPjtConfig {
 			
 			if(signmemId != null) {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN IN SUCCESS!!"));
-				nextPage = generateViewName("/sigin_ok");
+				nextPage = generateViewName("/signin_ok");
 				
 				HttpSession session = request.getSession();
 				session.setAttribute(MemberConfig.SIGNINED_MEMBERID,signmemId);
 			
 			} else {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN IN FAIL!!"));
-				nextPage = generateViewName("/sigin_ng");
+				nextPage = generateViewName("/signin_ng");
 			}
 			
 			break;
