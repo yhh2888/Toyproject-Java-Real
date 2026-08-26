@@ -1,4 +1,4 @@
-DB_MEMBER
+DB_TOY
 -tbl_mb
  -mb_no(멤버 번호) int
  -mb_id(멤버 아이디) str20
@@ -6,10 +6,10 @@ DB_MEMBER
  -mb_mail(멤버 메일) str30
  -mb_phone(멤버 전화번호) str20
 
-DB_MEMO
 -tbl_memo
  -memo_no(메모 번호) int
  -memo_name(메모 제목) str30
  -memo_content(메모 내용) str200
  -memo_writer_id(메모 작성자 아이디) str20
  -memo_write_date(메모 작성날짜) timestamp
+ -memo_last_modify (메모 마지막 수정날짜) timestamp

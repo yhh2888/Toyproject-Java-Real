@@ -1,7 +1,9 @@
-
 -- DB 생성
-CREATE DATABASE DB_MEMBER;
-USE DB_MEMBER;
+DROP DATABASE IF EXISTS DB_MEMBER;
+DROP DATABASE IF EXISTS DB_MEMO;
+
+CREATE DATABASE DB_TOY;
+USE DB_TOY;
 SHOW DATABASES;
 
 -- 
@@ -18,10 +20,6 @@ DESC tbl_mb;
 
 INSERT INTO tbl_mb(mb_no, mb_id, mb_pw, mb_mail, mb_phone)
 VALUES(1, 'user001', '1234', 'user001@gmail.com', '010-1234-5678');
-
-CREATE DATABASE DB_MEMO;
-USE DB_MEMO;
-SHOW DATABASES;
 
 CREATE TABLE tbl_memo(
    memo_no          INT           NOT NULL   COMMENT '메모 번호',
