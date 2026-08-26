@@ -11,9 +11,15 @@ public class MemberService {
     public MemberService(MemberDao memberDao) {
         this.memberDao = memberDao;
     }
-
-
-    private int signUp(MemberDto memberDto) {
+    
+    // 회원가입
+    public int userSignUpMember(HttpServletRequest request, HttpServletResponse response) {
+        MemberDto memberDto = new MemberDto();
+        memberDto.setMbId(request.getParameter("id"));
+        memberDto.setMbPw(request.getParameter("pw"));
+        memberDto.setMbMail(request.getParameter("mail"));
+        memberDto.setMbPhone(request.getParameter("phone"));
+        
         int result = memberDao.insertNewMember(memberDto);
 
         if (result > 0) {
@@ -24,8 +30,13 @@ public class MemberService {
 
         return result;
     }
+    
+    // 로그인
+    public String userSignInMember(HttpServletRequest request, HttpServletResponse response) {
+        MemberDto memberDto = new MemberDto();
+        memberDto.setMbId(request.getParameter("id"));
+        memberDto.setMbPw(request.getParameter("pw"));
 
-    private MemberDto signIn(MemberDto memberDto) {
         MemberDto loginedMember = memberDao.selectMember(memberDto);
 
         if (loginedMember != null) {
@@ -34,35 +45,18 @@ public class MemberService {
             System.out.println(CLASS_NAME.concat("signIn() FAIL!!"));
         }
 
-        return loginedMember;
+        return (loginedMember != null) ? loginedMember.getMbId() : null;
     }
-
-
-    public int userSignUpMember(HttpServletRequest request, HttpServletResponse response) {
-        MemberDto memberDto = new MemberDto();
-        memberDto.setId(request.getParameter("id"));
-        memberDto.setPw(request.getParameter("pw"));
-
-        return signUp(memberDto);
-    }
-
-    public String userSignInMember(HttpServletRequest request, HttpServletResponse response) {
-        MemberDto memberDto = new MemberDto();
-        memberDto.setId(request.getParameter("id"));
-        memberDto.setPw(request.getParameter("pw"));
-
-        MemberDto loginedMember = signIn(memberDto);
-
-        return (loginedMember != null) ? loginedMember.getId() : null;
-    }
-
+    
+    // 회원 조회
     public MemberDto getcurrentSigninedMember(String signinedMemberId) {
         return memberDao.selectMemberById(signinedMemberId);
     }
-
+    
+    // 회원 정보 수정
     public int modifyMemberNo(HttpServletRequest request, HttpServletResponse response) {
         MemberDto memberDto = new MemberDto();
-        memberDto.setId(request.getParameter("id"));
+        memberDto.setMbId(request.getParameter("id"));
 
         int result = memberDao.updateMember(memberDto);
 
@@ -74,7 +68,8 @@ public class MemberService {
 
         return result;
     }
-
+    
+    // 회원 정보 삭제
     public int deleteMember(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         int result = memberDao.deleteMember(id);
