@@ -2,6 +2,8 @@ package com.office.toypjt.member;
 
 import java.io.IOException;
 
+import com.office.toypjt.IToyPjtConfig;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,7 +14,7 @@ import jakarta.servlet.http.HttpSession;
 
 
 @WebServlet("*.mem")
-public class MemberController extends HttpServlet {
+public class MemberController extends HttpServlet implements IToyPjtConfig {
 	private static final long serialVersionUID = 1L;
        
    
@@ -50,7 +52,12 @@ public class MemberController extends HttpServlet {
 			memberService = new MemberService(new MemberDao());
 			
 			int result = memberService.userSignUpMember(request,response);
-			System.out.println(result + " result");
+//			System.out.println(result + " result");
+			
+			if (IS_DEV) {
+				result = 1;
+			}
+
 			if(result > 0) {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN UP SUCCESS!!"));
 				nextPage = generateViewName("/signup_ok");
@@ -75,6 +82,12 @@ public class MemberController extends HttpServlet {
 			memberService = new MemberService(new MemberDao());
 			
 			String signmemId = memberService.userSignInMember(request,response);
+			
+			// dumy data
+			if (IS_DEV) {
+				signmemId = "gildong";
+				
+			}
 			
 			if(signmemId != null) {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN IN SUCCESS!!"));

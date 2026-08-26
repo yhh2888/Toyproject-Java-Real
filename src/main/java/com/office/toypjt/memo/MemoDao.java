@@ -1,5 +1,6 @@
 package com.office.toypjt.memo;
 
+import java.net.Authenticator.RequestorType;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,10 +10,13 @@ import java.util.List;
 
 import com.office.toypjt.IToyPjtConfig;
 
+import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
+
 public class MemoDao implements IToyPjtConfig{
 	
 	final private String CLASS_NAME = "[MemoDao]";
 	
+	// 메모 생성(create)
 	public int insertNewMemo(MemoDto memoDto) {
 		System.out.println(CLASS_NAME.concat("insertNewMemo()"));
 		
@@ -43,17 +47,24 @@ public class MemoDao implements IToyPjtConfig{
 	
 	result = pstmt.executeUpdate();
 			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			
+		} finally {
+			
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-		
 		return result;
-		
 	}
 	
-	public int List<MemoDto> selectedMemo(MemoDto memoDto) {
+	// 메모 조회(read)
+	public List<MemoDto> viewListMemo() {
 		System.out.println(CLASS_NAME.concat("selectedMemo()"));
 		
 		Connection conn = null;
@@ -71,15 +82,49 @@ public class MemoDao implements IToyPjtConfig{
 			
 			while(rs.next()) {
 				MemoDto memoDto = new MemoDto();
+				memoDto.setMemoNo(rs.getInt("memo_no"));
+				memoDto.setMemoName(rs.getString("memo_name"));
+				memoDto.setMemoContent(rs.getString("memo_content"));
+				memoDto.setMemoWriterId(rs.getString("memo_writer_id"));
+				memoDto.setMemoWriteDate(rs.getString("memo_write_date"));
+				memoDto.setMemoLastModify(rs.getString("memo_last_modify"));
 				
-				memoDto.set
-				
+				memoDtos.add(memoDto);
 			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				if(rs != null) rs.close();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} 
+		return memoDtos;
+	}
+	
+	// 메모 수정(update)
+	public int updateForMemo(MemoDto memoDto) {
+		System.out.println(CLASS_NAME.concat("updateForMemo()"));
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = -1;
+		
+		try {
+			Class.forName(DRIVER);
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "UPDATE tbl_memo(memo_content)";
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
-
 }
