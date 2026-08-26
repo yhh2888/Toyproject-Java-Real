@@ -1,5 +1,7 @@
 package com.office.toypjt;
 
+import com.office.toypjt.member.MemberDto;
+
 public interface IToyPjtConfig {
 
 	public final boolean IS_DEV = true;
@@ -8,6 +10,8 @@ public interface IToyPjtConfig {
 	public final String URL = "jdbc:mysql://127.0.0.1:3306/db_toy";
 	public final String USER = "root";
 	public final String PASSWORD = "1234";
+	
+	int insertNewMember(MemberDto memberDto);
 
 	
 }
