@@ -1,7 +1,5 @@
 package com.office.toypjt;
 
-import com.office.toypjt.member.MemberDto;
-
 public interface IToyPjtConfig {
 
 	public final boolean IS_DEV = false;
@@ -11,7 +9,7 @@ public interface IToyPjtConfig {
 	public final String USER = "root";
 	public final String PASSWORD = "1234";
 	
-	int insertNewMember(MemberDto memberDto);
+	
 
 	
 }

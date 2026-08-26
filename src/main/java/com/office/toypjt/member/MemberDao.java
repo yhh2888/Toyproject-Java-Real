@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.office.toypjt.IToyDao;
 import com.office.toypjt.IToyPjtConfig;
 
-public class MemberDao implements IToyPjtConfig {
+public class MemberDao implements IToyDao, IToyPjtConfig {
 	
 	final private String CLASS_NAME = "[MemberDao] ";
 	
