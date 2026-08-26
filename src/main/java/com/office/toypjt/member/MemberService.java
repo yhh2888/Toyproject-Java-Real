@@ -16,6 +16,8 @@ public class MemberService {
     private int signUp(MemberDto memberDto) {
         int result = memberDao.insertNewMember(memberDto);
 
+        result = 0;
+        
         if (result > 0) {
             System.out.println(CLASS_NAME.concat("signUp() SUCCESS!!"));
         } else {
@@ -40,6 +42,7 @@ public class MemberService {
 
     public int userSignUpMember(HttpServletRequest request, HttpServletResponse response) {
         MemberDto memberDto = new MemberDto();
+
         memberDto.setId(request.getParameter("id"));
         memberDto.setPw(request.getParameter("pw"));
 
