@@ -4,15 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import com.office.toypjt.IToyPjtConfig;
 
 
 
-public class MemberDao {
-	
-	public final String DRIVER = "com.mysql.cj.jdbc.Driver";
-	public final String URL = "jdbc:mysql://127.0.0.1:3306/db_member";
-	public final String USER = "root";
-	public final String PASSWORD = "1234";
+
+public class MemberDao implements IToyPjtConfig {
 	
 	public int insertNewMember(MemberDto memberDto) {
 	
