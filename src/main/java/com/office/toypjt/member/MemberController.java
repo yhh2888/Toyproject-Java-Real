@@ -53,11 +53,11 @@ public class MemberController extends HttpServlet {
 			System.out.println(result + " result");
 			if(result > 0) {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN UP SUCCESS!!"));
-				nextPage = generateViewName("/member_signup_ok");
+				nextPage = generateViewName("/signup_ok");
 				
 			} else {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN UP FAIL!!"));
-				nextPage = generateViewName("/member_signup_ng");
+				nextPage = generateViewName("/signup_ng");
 			}
 			
 			break;	
@@ -78,14 +78,14 @@ public class MemberController extends HttpServlet {
 			
 			if(signmemId != null) {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN IN SUCCESS!!"));
-				nextPage = generateViewName("/member_sigin_ok");
+				nextPage = generateViewName("/sigin_ok");
 				
 				HttpSession session = request.getSession();
 				session.setAttribute(MemberConfig.SIGNINED_MEMBERID,signmemId);
 			
 			} else {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN IN FAIL!!"));
-				nextPage = generateViewName("/member_sigin_ng");
+				nextPage = generateViewName("/sigin_ng");
 			}
 			
 			break;
@@ -115,11 +115,11 @@ public class MemberController extends HttpServlet {
 			
 			if(resultForModifyMember > 0) {
 				System.out.println(CLASS_NAME.concat("MEMBER MODIFY SUCCESS!!"));
-				nextPage = generateViewName("/member_modify_ok");
+				nextPage = generateViewName("/modify_ok");
 				
 			} else {
 				System.out.println(CLASS_NAME.concat("MEMBER MODIFY FAIL!!"));
-				nextPage = generateViewName("/member_modify_ng");			
+				nextPage = generateViewName("/modify_ng");			
 			}
 			
 			break;
@@ -139,11 +139,11 @@ public class MemberController extends HttpServlet {
 			
 			if(resultForDelete > 0) {
 				System.out.println(CLASS_NAME.concat("MEMBER DELETE SUCCESS!!"));
-				nextPage = generateViewName("/member_delete_ok");
+				nextPage = generateViewName("/delete_ok");
 				
 			} else {
 				System.out.println(CLASS_NAME.concat("MEMBER DELETE FAIL!!"));
-				nextPage = generateViewName("/member_delete_ng");
+				nextPage = generateViewName("/delete_ng");
 				
 			}
 			
