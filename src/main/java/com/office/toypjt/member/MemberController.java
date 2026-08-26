@@ -50,7 +50,7 @@ public class MemberController extends HttpServlet {
 			memberService = new MemberService(new MemberDao());
 			
 			int result = memberService.userSignUpMember(request,response);
-			
+			System.out.println(result + " result");
 			if(result > 0) {
 				System.out.println(CLASS_NAME.concat("MEMBER SIGN UP SUCCESS!!"));
 				nextPage = generateViewName("/member_signup_ok");

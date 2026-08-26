@@ -9,13 +9,17 @@
 </head>
 <body>
 
-	<h1>MEMEBER MODIFY RESULT</h1>
+	<h1>MEMEBER SIGNUP FORM</h1>
 	
 	<jsp:include page="./include/nav.jsp" />
 	
 	<div>
 	
-		<h1>MEMBER MODIFY OK!</h1>
+		<h1>NEW MEMBER SIGNUP NG!</h1>
 	
 	</div>
 	
+	
+
+</body>
+</html>
