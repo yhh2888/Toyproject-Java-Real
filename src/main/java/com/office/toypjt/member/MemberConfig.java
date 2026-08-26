@@ -21,7 +21,7 @@ public class MemberConfig {
 	// 저장된 아이디
 	final static public String SIGNINED_MEMBERID = "signinedMemId";
 	
-	final static public String DEFAULT_VIEW_PATH = "views";
+	final static public String DEFAULT_VIEW_PATH = "views/";
 	final static public String DEFAULT_VIEW_SUFFIX = ".jsp";
 	
 	
