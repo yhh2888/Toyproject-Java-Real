@@ -20,9 +20,9 @@
 			name="member_signin_form"
 			method="post">
 			
-			<input type="text" name="memId" placeholder="Input member ID!">
+			<input type="text" name="mb_id" placeholder="Input member ID!">
 			<br>
-			<input type="password" name="memPw" placeholder="Input member PW!">
+			<input type="password" name="mb_pw" placeholder="Input member PW!">
 			<br>
 			<input type="submit" value="SIGN-IN">
 			<input type="reset" value="RESET">

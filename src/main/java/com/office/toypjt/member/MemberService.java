@@ -28,10 +28,10 @@ public class MemberService implements IToyPjtConfig {
     // 회원가입
     public int userSignUpMember(HttpServletRequest request, HttpServletResponse response) {
         MemberDto memberDto = new MemberDto();
-        memberDto.setMbId(request.getParameter("id"));
-        memberDto.setMbPw(request.getParameter("pw"));
-        memberDto.setMbMail(request.getParameter("mail"));
-        memberDto.setMbPhone(request.getParameter("phone"));
+        memberDto.setMbId(request.getParameter("mb_id"));
+        memberDto.setMbPw(request.getParameter("mb_pw"));
+        memberDto.setMbMail(request.getParameter("mb_mail"));
+        memberDto.setMbPhone(request.getParameter("mb_phone"));
 
         return logResult("signUp", memberDao.insertNewMember(memberDto));
     }
@@ -39,8 +39,8 @@ public class MemberService implements IToyPjtConfig {
     // 로그인 
     public String userSignInMember(HttpServletRequest request, HttpServletResponse response) {
         MemberDto memberDto = new MemberDto();
-        memberDto.setMbId(request.getParameter("id"));
-        memberDto.setMbPw(request.getParameter("pw"));
+        memberDto.setMbId(request.getParameter("mb_id"));
+        memberDto.setMbPw(request.getParameter("mb_pw"));
 
         MemberDto loginedMember = memberDao.selectMember(memberDto);
 
@@ -62,14 +62,14 @@ public class MemberService implements IToyPjtConfig {
     // 회원 정보 수정
     public int modifyMemberNo(HttpServletRequest request, HttpServletResponse response) {
         MemberDto memberDto = new MemberDto();
-        memberDto.setMbId(request.getParameter("id"));
+        memberDto.setMbId(request.getParameter("mb_id"));
 
         return logResult("modifyMemberNo", memberDao.updateMember(memberDto));
     }
 
     // 회원 정보 삭제
     public int deleteMember(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("id");
+        String id = request.getParameter("mb_id");
 
         return logResult("deleteMember", memberDao.deleteMember(id));
     }

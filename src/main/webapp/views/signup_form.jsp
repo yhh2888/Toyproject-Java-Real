@@ -20,13 +20,13 @@
 			name="member_signup_form"
 			method="post">
 			
-			<input type="text" name="memId" placeholder="Input new member ID!">
+			<input type="text" name="mb_id" placeholder="Input new member ID!">
 			<br>
-			<input type="password" name="memPw" placeholder="Input new member PW!">
+			<input type="password" name="mb_pw" placeholder="Input new member PW!">
 			<br>
-			<input type="email" name="memMail" placeholder="Input new member MAIL!">
+			<input type="email" name="mb_mail" placeholder="Input new member MAIL!">
 			<br>
-			<input type="text" name="memPhone" placeholder="Input new member PHONE!">
+			<input type="text" name="mb_phone" placeholder="Input new member PHONE!">
 			<br>
 			<input type="submit" value="SIGN-UP">
 			<input type="reset" value="RESET">

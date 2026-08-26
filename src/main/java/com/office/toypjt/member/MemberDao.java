@@ -29,9 +29,13 @@ public class MemberDao implements IToyDao, IToyPjtConfig {
 			
 			String sql = "INSERT INTO tbl_mb(mb_id, mb_pw, mb_mail, mb_phone) "
 					+ "VALUES(?, ?, ?, ?)";
-			
+			System.out.println(sql);
+			System.out.println(memberDto);
 			pstmt = conn.prepareStatement(sql);
-			
+			System.out.println("mbid = " + memberDto.getMbId());
+			System.out.println("mbpw = " + memberDto.getMbPw());
+			System.out.println("mbma = " + memberDto.getMbMail());
+			System.out.println("mbph = " + memberDto.getMbPhone());
 			// set
 			pstmt.setString(1, memberDto.getMbId());
 			pstmt.setString(2, memberDto.getMbPw());
@@ -83,7 +87,8 @@ public class MemberDao implements IToyDao, IToyPjtConfig {
 					+ "mb_id = ? AND mb_pw = ?";
 			
 			pstmt = conn.prepareStatement(sql);
-			
+			System.out.println("mbid = " + memberDto.getMbId());
+			System.out.println("mbpw = " + memberDto.getMbPw());
 			// set
 			pstmt.setString(1, memberDto.getMbId());
 			pstmt.setString(2, memberDto.getMbPw());

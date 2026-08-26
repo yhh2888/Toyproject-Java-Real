@@ -14,14 +14,17 @@
 <form action="<%=request.getContextPath()%>/memo_write_confirm.memo" method="post">
 
     <p>
-        제목 : <input type="text" name="m_title" required>
+        제목 : <input type="text" name="memo_name" required>
     </p>
 
     <p>
         내용 <br>
-        <textarea name="m_content" rows="10" cols="50" required></textarea>
+        <textarea name="memo_content" rows="10" cols="50" required></textarea>
     </p>
-
+    <p>
+    	아이디 <br>
+		<input type="text" name="memo_writer_id" required>
+	</p>
     <input type="submit" value="작성">
     <input type="button" value="목록"
            onclick="location.href='<%=request.getContextPath()%>/memo_list.memo'">
