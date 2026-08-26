@@ -1,0 +1,64 @@
+package com.office.toypjt.memo;
+
+public class MemoDto {
+    
+    private int memoId;          // 메모 식별 번호 (PK)
+    private String writerId;     // 작성자 ID (로그인한 사용자)
+    private String memoText;     // 메모 내용
+    private String regTime;      // 최초 저장 날짜 및 시간 (NFR-01)
+    private String modTime;      // 수정된 날짜 및 시간 (NFR-03)
+
+    // 기본 생성자
+    public MemoDto() {
+    }
+
+    // 전체 필드 생성자
+    public MemoDto(int memoId, String writerId, String memoText, String regTime, String modTime) {
+        this.memoId = memoId;
+        this.writerId = writerId;
+        this.memoText = memoText;
+        this.regTime = regTime;
+        this.modTime = modTime;
+    }
+
+    // Getter & Setter
+    public int getMemoId() {
+        return memoId;
+    }
+
+    public void setMemoId(int memoId) {
+        this.memoId = memoId;
+    }
+
+    public String getWriterId() {
+        return writerId;
+    }
+
+    public void setWriterId(String writerId) {
+        this.writerId = writerId;
+    }
+
+    public String getMemoText() {
+        return memoText;
+    }
+
+    public void setMemoText(String memoText) {
+        this.memoText = memoText;
+    }
+
+    public String getRegTime() {
+        return regTime;
+    }
+
+    public void setRegTime(String regTime) {
+        this.regTime = regTime;
+    }
+
+    public String getModTime() {
+        return modTime;
+    }
+
+    public void setModTime(String modTime) {
+        this.modTime = modTime;
+    }
+}

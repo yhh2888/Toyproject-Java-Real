@@ -1,0 +1,15 @@
+DB_MEMBER
+-tbl_mb
+ -mb_no(멤버 번호) int
+ -mb_id(멤버 아이디) str20
+ -mb_pw(멤버 비밀번호) str20
+ -mb_mail(멤버 메일) str30
+ -mb_phone(멤버 전화번호) str20
+
+DB_MEMO
+-tbl_memo
+ -memo_no(메모 번호) int
+ -memo_name(메모 제목) str30
+ -memo_content(메모 내용) str200
+ -memo_writer_id(메모 작성자 아이디) str20
+ -memo_write_date(메모 작성날짜) timestamp
