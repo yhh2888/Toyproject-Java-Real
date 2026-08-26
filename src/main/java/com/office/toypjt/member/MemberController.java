@@ -161,7 +161,20 @@ public class MemberController extends HttpServlet implements IToyPjtConfig {
 			}
 			
 			break;
+			
+		case MemberConfig.MEMBER_LOGOUT:
+		    System.out.println(CLASS_NAME.concat(MemberConfig.MEMBER_LOGOUT));
+
+		    HttpSession logoutSession = request.getSession(false); // 기존 세션만 가져오기
+
+		    if (logoutSession != null) {
+		        logoutSession.invalidate(); // 세션 전체 삭제
+		    }
+
+		    nextPage = generateViewName("/logout_confirm");
+		    break;
 		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
 		dispatcher.forward(request, response);

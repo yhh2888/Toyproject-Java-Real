@@ -10,6 +10,9 @@ public class MemberConfig {
 	final static public String MEMBER_SIGNIN_FORM = "/signin_form.mem";
 	final static public String MEMBER_SIGNIN_CONFIRM = "/signin_confirm.mem";
 	
+	// 로그아웃
+	final static public String MEMBER_LOGOUT = "/logout_confirm.mem";
+	
 	// 회원 정보 수정
 	final static public String MEMBER_MODIFY_FORM = "/modify_form.mem";
 	final static public String MEMBER_MODIFY_CONFIRM = "/modify_confirm.mem";
