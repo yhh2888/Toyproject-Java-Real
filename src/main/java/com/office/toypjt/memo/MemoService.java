@@ -123,34 +123,6 @@ public class MemoService {
 
 
     // ==========================================
-    // 메모 1개 조회
-    // ==========================================
-    public MemoDto getMemo(
-            HttpServletRequest request,
-            HttpServletResponse response) {
-
-        System.out.println(
-                CLASS_NAME.concat("getMemo()")
-        );
-
-
-        // memo_no 가져오기
-        int memoNo =
-                Integer.parseInt(
-                        request.getParameter("memo_no")
-                );
-
-
-        // DAO 호출
-        MemoDto memoDto =
-                memoDao.selectMemo(memoNo);
-
-
-        return memoDto;
-    }
-
-
-    // ==========================================
     // 메모 수정
     // ==========================================
     public int modifyMemo(
