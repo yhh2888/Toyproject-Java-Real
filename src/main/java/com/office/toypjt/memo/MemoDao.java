@@ -1,6 +1,5 @@
 package com.office.toypjt.memo;
 
-import java.net.Authenticator.RequestorType;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.office.toypjt.IToyPjtConfig;
-
-import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 
 public class MemoDao implements IToyPjtConfig{
 	
@@ -64,7 +61,7 @@ public class MemoDao implements IToyPjtConfig{
 	}
 	
 	// 메모 조회(read)
-	public List<MemoDto> selectMemoList() {
+	public List<MemoDto> selectMemoList(String memberId) {
 		System.out.println(CLASS_NAME.concat("selectedMemo()"));
 		
 		Connection conn = null;
@@ -109,7 +106,7 @@ public class MemoDao implements IToyPjtConfig{
 	}
 	
 	// 메모 수정(update)
-	public int modifyMemo(MemoDto memoDto) {
+	public int updateMemo(MemoDto memoDto) {
 		System.out.println(CLASS_NAME.concat("updateForMemo()"));
 		
 		Connection conn = null;
@@ -183,4 +180,6 @@ public class MemoDao implements IToyPjtConfig{
 		}
 		return result;
 	}
+
+	
 }
