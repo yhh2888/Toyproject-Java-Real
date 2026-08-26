@@ -4,7 +4,7 @@ import com.office.toypjt.member.MemberDto;
 
 public interface IToyPjtConfig {
 
-	public final boolean IS_DEV = true;
+	public final boolean IS_DEV = false;
 	
 	public final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	public final String URL = "jdbc:mysql://127.0.0.1:3306/db_toy";

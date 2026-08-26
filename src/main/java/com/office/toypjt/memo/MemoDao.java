@@ -109,7 +109,7 @@ public class MemoDao implements IToyPjtConfig{
 	}
 	
 	// 메모 수정(update)
-	public int updateMemo(MemoDto memoDto) {
+	public int modifyMemo(MemoDto memoDto) {
 		System.out.println(CLASS_NAME.concat("updateForMemo()"));
 		
 		Connection conn = null;
@@ -150,7 +150,7 @@ public class MemoDao implements IToyPjtConfig{
 	}
 	
 	// 삭제(delete)
-	public int deleteMemoByMemoNo(int memoNo) {
+	public int deleteMemo(int memoNo) {
 		System.out.println(CLASS_NAME.concat("deleteForMemo()"));
 		
 		Connection conn = null;
