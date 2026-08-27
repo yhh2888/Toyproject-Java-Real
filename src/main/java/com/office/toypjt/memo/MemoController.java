@@ -66,7 +66,7 @@ public class MemoController extends HttpServlet {
 			System.out.println(CLASS_NAME.concat(MemoConfig.MEMO_LIST));
 			
 			memoService = new MemoService();
-			memoService.getMemos(request, response);
+			request.setAttribute("memoDtos", memoService.getMemos(request, response));
 			
 			nextPage = generateView("memo_list");
 			
@@ -77,7 +77,7 @@ public class MemoController extends HttpServlet {
 			System.out.println(CLASS_NAME.concat(MemoConfig.MEMO_MODIFY_FORM));
 			
 			memoService = new MemoService();
-			memoService.getMemos(request, response);
+			request.setAttribute("memoDto", memoService.getMemo(request, response));
 			
 			nextPage = generateView("memo_modify_form");
 			

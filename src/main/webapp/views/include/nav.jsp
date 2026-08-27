@@ -20,7 +20,7 @@
 			&nbsp;&nbsp; | &nbsp;&nbsp;
 			<a href="<%=request.getContextPath().concat(MemberConfig.MEMBER_MODIFY_FORM) %>">MODIFY</a>
 			&nbsp;&nbsp; | &nbsp;&nbsp;
-			<a href="<%=request.getContextPath().concat(MemberConfig.MEMBER_SIGNUP_FORM) %>">DELETE</a>
+			<a href="<%=request.getContextPath().concat(MemberConfig.MEMBER_DELETE_FORM) %>">DELETE</a>
 			&nbsp;&nbsp; | &nbsp;&nbsp;
 	<%
 		} else {

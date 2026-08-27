@@ -125,6 +125,12 @@ public class MemoService {
     // ==========================================
     // 메모 수정
     // ==========================================
+        public MemoDto getMemo(HttpServletRequest request,
+                                                   HttpServletResponse response) {
+                int memoNo = Integer.parseInt(request.getParameter("memoNo"));
+                return memoDao.selectMemo(memoNo);
+        }
+
     public int modifyMemo(
             HttpServletRequest request,
             HttpServletResponse response) {
@@ -141,18 +147,18 @@ public class MemoService {
         // 메모 번호
         int memoNo =
                 Integer.parseInt(
-                        request.getParameter("memo_no")
+                        request.getParameter("memoNo")
                 );
 
 
         // 수정할 제목
         String memoName =
-                request.getParameter("memo_name");
+                request.getParameter("memoName");
 
 
         // 수정할 내용
         String memoContent =
-                request.getParameter("memo_content");
+                request.getParameter("memoContent");
 
 
         memoDto.setMemoNo(memoNo);
@@ -202,7 +208,7 @@ public class MemoService {
         // 삭제할 메모 번호
         int memoNo =
                 Integer.parseInt(
-                        request.getParameter("memo_no")
+                        request.getParameter("memoNo")
                 );
 
 

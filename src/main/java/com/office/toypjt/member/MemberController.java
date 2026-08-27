@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpSession;
 public class MemberController extends HttpServlet implements IToyPjtConfig {
 	private static final long serialVersionUID = 1L;
        
-   
+    
 	private String CLASS_NAME = "[MemberController]";
 	
 	
@@ -140,7 +140,7 @@ public class MemberController extends HttpServlet implements IToyPjtConfig {
 		// 회원 정보 삭제
 		case MemberConfig.MEMBER_DELETE_FORM:
 			System.out.println(CLASS_NAME.concat(MemberConfig.MEMBER_DELETE_FORM));
-			nextPage = generateViewName("/delete_form");
+			nextPage = generateViewName("/delete_confirm");
 			
 			break;
 			
@@ -152,11 +152,16 @@ public class MemberController extends HttpServlet implements IToyPjtConfig {
 			
 			if(resultForDelete > 0) {
 				System.out.println(CLASS_NAME.concat("MEMBER DELETE SUCCESS!!"));
-				nextPage = generateViewName("/delete_ok");
+				HttpSession deletedMemberSession = request.getSession(false);
+				if (deletedMemberSession != null) {
+					deletedMemberSession.invalidate();
+				}
+				response.sendRedirect(request.getContextPath().concat(MemberConfig.MEMBER_SIGNIN_FORM));
+				return;
 				
 			} else {
 				System.out.println(CLASS_NAME.concat("MEMBER DELETE FAIL!!"));
-				nextPage = generateViewName("/delete_ng");
+				nextPage = generateViewName("/delete_confirm");
 				
 			}
 			
