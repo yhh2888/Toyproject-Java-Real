@@ -2,8 +2,10 @@ package com.office.toypjt.member;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.office.toypjt.IToyPjtConfig;
+
 
 public class MemberService implements IToyPjtConfig {
 
@@ -62,14 +64,30 @@ public class MemberService implements IToyPjtConfig {
     // 회원 정보 수정
     public int modifyMemberNo(HttpServletRequest request, HttpServletResponse response) {
         MemberDto memberDto = new MemberDto();
-        memberDto.setMbId(request.getParameter("mb_id"));
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            return logResult("modifyMemberNo", -1);
+        }
 
+        memberDto.setMbId((String) session.getAttribute(MemberConfig.SIGNINED_MEMBERID));
+        memberDto.setMbPw(request.getParameter("mb_pw"));
+        memberDto.setMbMail(request.getParameter("mb_mail"));
+        memberDto.setMbPhone(request.getParameter("mb_phone"));
+        
         return logResult("modifyMemberNo", memberDao.updateMember(memberDto));
     }
 
     // 회원 정보 삭제
     public int deleteMember(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("mb_id");
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            return logResult("deleteMember", -1);
+        }
+
+        String id = (String) session.getAttribute(MemberConfig.SIGNINED_MEMBERID);
+        if (id == null || id.isBlank()) {
+            return logResult("deleteMember", -1);
+        }
 
         return logResult("deleteMember", memberDao.deleteMember(id));
     }

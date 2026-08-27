@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-    String m_no = request.getParameter("m_no");
+    String memoNo = request.getParameter("memoNo");
 %>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 
 <form action="<%=request.getContextPath()%>/memo_delete_confirm.memo" method="post">
 
-    <input type="hidden" name="m_no" value="<%=m_no%>">
+    <input type="hidden" name="memoNo" value="<%=memoNo%>">
 
     <input type="submit" value="삭제">
     <input type="button" value="취소"

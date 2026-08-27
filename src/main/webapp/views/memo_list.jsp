@@ -5,7 +5,7 @@
 <%@ page import="com.office.toypjt.memo.MemoDto" %>
 
 <%
-    List<MemoDto> memoDtos = (List<MemoDto>)request.getAttribute("memoDtos");
+    List<MemoDto> memoDtos = (List<MemoDto>) request.getAttribute("memoDtos");
 %>
 
 <!DOCTYPE html>
@@ -49,6 +49,7 @@ a{
     <tr>
         <th>번호</th>
         <th>제목</th>
+        <th>내용</th>
         <th>작성자</th>
         <th>작성일</th>
         <th>수정일</th>
@@ -63,6 +64,7 @@ if(memoDtos != null && !memoDtos.isEmpty()){
     <tr>
         <td><%=memo.getMemoNo()%></td>
         <td><%=memo.getMemoName()%></td>
+        <td><%=memo.getMemoContent()%></td>
         <td><%=memo.getMemoWriterId()%></td>
         <td><%=memo.getMemoWriteDate()%></td>
         <td><%=memo.getMemoLastModify()%></td>
@@ -87,7 +89,7 @@ if(memoDtos != null && !memoDtos.isEmpty()){
 %>
 
     <tr>
-        <td colspan="6">등록된 메모가 없습니다.</td>
+        <td colspan="7">등록된 메모가 없습니다.</td>
     </tr>
 
 <%
